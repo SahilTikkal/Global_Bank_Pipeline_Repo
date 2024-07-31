@@ -11,12 +11,12 @@ logger = logging.getLogger(__name__)
 def main():
     try:
         # MySQL connection properties
-        hostname = "127.0.0.1"  # Use IP address instead of 'localhost'
+        hostname = "127.0.0.1"  
         port = "3306"
-        database = "global_bank"  # Replace with your database name
-        username = "root"  # Replace with your MySQL username
-        password = "18111997@PS"  # Replace with your MySQL password
-
+        database = "global_bank"  
+        username = "root"  
+        password = "Password_here"  
+        
         # Encode special characters in the password
         password = urllib.parse.quote_plus(password)
 
