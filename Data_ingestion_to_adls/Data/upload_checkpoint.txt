@@ -1,0 +1,11 @@
+customers.parquet
+branches.parquet
+upload_checkpoint.txt
+Branches.csv
+Customers.csv
+Transactions.csv
+transactions_batch_0.csv
+transactions_batch_1.csv
+transactions_batch_2.csv
+transactions_batch_3.csv
+transactions_batch_4.csv

@@ -1,0 +1,16 @@
+branch_id,name,location,timezone,currency
+B0000,New Robertbury Branch,Sydney,AEST,GBP
+B0001,Mclaughlintown Branch,New York,EST,USD
+B0002,Davidburgh Branch,Phoenix,MST,GBP
+B0003,West Nicholasfort Branch,Paris,CET,USD
+B0004,Lake Justin Branch,San Diego,PST,USD
+B0005,New Briantown Branch,Houston,CST,EUR
+B0006,Bruceport Branch,Los Angeles,PST,GBP
+B0007,Mistyton Branch,Chicago,CST,USD
+B0008,New Maryport Branch,Dallas,CST,USD
+B0009,Hodgeston Branch,Brisbane,AEST,USD
+B0010,Millerville Branch,Perth,AWST,USD
+B0011,New Elizabethport Branch,San Jose,PST,GBP
+B0012,Lake Scottborough Branch,Philadelphia,EST,USD
+B0013,East Amandachester Branch,Madrid,CET,GBP
+B0014,Lake Carlos Branch,Rome,CET,AUD
