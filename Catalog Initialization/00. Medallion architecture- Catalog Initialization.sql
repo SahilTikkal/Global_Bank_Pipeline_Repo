@@ -82,71 +82,63 @@ USING DELTA
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC ## 2. Silver tables
+-- MAGIC ## Silver tables
 
 -- COMMAND ----------
 
--- DBTITLE 1,Creating silver table with cleaned data
-CREATE TABLE IF NOT EXISTS ORS_silver_schema.ORS_silver (
-  InvoiceNo STRING,
-  StockCode string,
-  Description string,
-  Quantity int,
-  InvoiceDate timestamp,
-  UnitPrice double,
-  CustomerID int,
-  Country string,
-  InvoiceDateOnly date,
-  Total_sales double
-)
-USING DELTA PARTITIONED BY (InvoiceDateOnly)
-
--- COMMAND ----------
-
--- MAGIC %md
--- MAGIC # Gold layer Table
-
--- COMMAND ----------
-
--- DBTITLE 1,Daily Summary table
-CREATE TABLE ORS_gold_schema.DailySalesSummary (
-    InvoiceDateOnly DATE,
-    total_daily_sales DOUBLE,
-    total_daily_sales_avg DOUBLE,
-    daily_total_quantity BIGINT,
-    daily_quantity_avg DOUBLE,
-    daily_total_UnitPrice DOUBLE,
-    Daily_UnitPrice_avg DOUBLE
-)
- USING DELTA;
-
--- COMMAND ----------
-
--- DBTITLE 1,product summary table
-CREATE TABLE ProductSalesSummary (
-    StockCode STRING,
-    total_sales DOUBLE,
-    total_sales_avg DOUBLE,
-    total_quantity BIGINT,
-    quantity_avg DOUBLE,
-    total_UnitPrice DOUBLE,
-    UnitPrice_avg DOUBLE
+-- DBTITLE 1,Cleaned and Transformed customer Table
+-- Cleaned and Transformed customer Table
+CREATE TABLE IF NOT EXISTS hive_metastore.gb_silver_schema.cat_customers (
+    customer_id STRING,
+    name STRING,
+    email STRING,
+    phone BIGINT,
+    address STRING,
+    credit_score INT,
+    join_date DATE,
+    last_update STRING,
+    customer_type STRING,
+    year INT,
+    domain STRING,
+    postal_code INT
 )
 USING DELTA;
 
+
 -- COMMAND ----------
 
--- DBTITLE 1,Customer Summary Table
-CREATE TABLE CustomerSalesSummary (
-    CustomerID INT,
-    total_sales DOUBLE,
-    total_sales_avg DOUBLE,
-    total_quantity BIGINT,
-    quantity_avg DOUBLE,
-    total_UnitPrice DOUBLE,
-    UnitPrice_avg DOUBLE
+-- DBTITLE 1,Cleaned and Transformed Branch Table
+-- Cleaned and Transformed Branch Table
+CREATE TABLE IF NOT EXISTS hive_metastore.gb_silver_schema.cat_branches (
+    branch_id STRING,
+    branch_name STRING,
+    location STRING,
+    timezone STRING,
+    currency STRING,
+    latitude DOUBLE,
+    longitude DOUBLE
 )
 USING DELTA;
 
+
 -- COMMAND ----------
+
+-- DBTITLE 1,Cleaned and Transformed Transactions Table
+-- Cleaned and Transformed Transactions Table
+
+CREATE TABLE IF NOT EXISTS hive_metastore.gb_silver_schema.cat_transactions (
+    transaction_id STRING,
+    customer_id STRING,
+    branch_id STRING,
+    channel STRING,
+    transaction_type STRING,
+    amount DOUBLE,
+    currency STRING,
+    timestamp STRING,
+    status STRING,
+    year INT,
+    month INT,
+    Amount_USD DOUBLE
+)
+USING DELTA;
 
